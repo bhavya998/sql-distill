@@ -26,7 +26,8 @@ def _pct(entry: dict, split: str) -> str:
 def table(summary: dict) -> str:
     names = [n for n in ORDER if n in summary] + [n for n in summary if n not in ORDER]
     lines = [
-        "| Model | Seen templates | Held-out templates | Hand-written | p50 latency | $ / 1k queries |",
+        "| Model | Seen templates | Held-out templates | Hand-written | p50 latency "
+        "| $ / 1k queries |",
         "|---|---:|---:|---:|---:|---:|",
     ]
     for n in names:
@@ -35,8 +36,8 @@ def table(summary: dict) -> str:
         cost = f"${usd:.3f}" if usd else "local"
         p50 = e.get("latency_s", {}).get("p50")
         lat = f"{p50:.2f} s" if p50 is not None else "—"
-        lines.append(f"| {LABELS.get(n, n)} | {_pct(e, 'test_seen')} | "
-                     f"{_pct(e, 'test_heldout')} | {_pct(e, 'test_handwritten')} | {lat} | {cost} |")
+        scores = " | ".join(_pct(e, s) for s in ("test_seen", "test_heldout", "test_handwritten"))
+        lines.append(f"| {LABELS.get(n, n)} | {scores} | {lat} | {cost} |")
     return "\n".join(lines)
 
 
