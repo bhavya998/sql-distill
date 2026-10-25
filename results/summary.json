@@ -1,0 +1,158 @@
+{
+  "qwen3.5-4b-q4-zeroshot": {
+    "backend": "endpoint:qwen3.5-4b-gguf",
+    "adapter": "",
+    "test_seen": {
+      "n": 39,
+      "accuracy": 0.8974,
+      "valid_sql": 0.9744,
+      "by_skill": {
+        "aggregate": 1.0,
+        "date": 1.0,
+        "filter_count": 1.0,
+        "filter_list": 0.8,
+        "having": 1.0,
+        "join": 1.0,
+        "multi_join": 0.833,
+        "ratio": 0.0,
+        "top_k": 1.0
+      }
+    },
+    "test_heldout": {
+      "n": 24,
+      "accuracy": 0.875,
+      "valid_sql": 1.0,
+      "by_skill": {
+        "heldout": 0.875
+      }
+    },
+    "test_handwritten": {
+      "n": 59,
+      "accuracy": 0.7119,
+      "valid_sql": 0.8983,
+      "by_skill": {
+        "aggregate": 0.75,
+        "date": 0.6,
+        "filter_count": 1.0,
+        "filter_list": 1.0,
+        "group_by": 0.875,
+        "having": 0.4,
+        "join": 0.667,
+        "multi_join": 1.0,
+        "ratio": 0.75,
+        "subquery": 0.167,
+        "top_k": 1.0
+      }
+    },
+    "latency_s": {
+      "p50": 2.095,
+      "p95": 7.363,
+      "n": 30
+    },
+    "usd_per_1k_queries": 0.0
+  },
+  "deepseek-v4.1-flash": {
+    "backend": "endpoint:deepseek-flash",
+    "adapter": "",
+    "test_seen": {
+      "n": 39,
+      "accuracy": 1.0,
+      "valid_sql": 1.0,
+      "by_skill": {
+        "aggregate": 1.0,
+        "date": 1.0,
+        "filter_count": 1.0,
+        "filter_list": 1.0,
+        "having": 1.0,
+        "join": 1.0,
+        "multi_join": 1.0,
+        "ratio": 1.0,
+        "top_k": 1.0
+      }
+    },
+    "test_heldout": {
+      "n": 24,
+      "accuracy": 0.9167,
+      "valid_sql": 1.0,
+      "by_skill": {
+        "heldout": 0.917
+      }
+    },
+    "test_handwritten": {
+      "n": 59,
+      "accuracy": 0.9492,
+      "valid_sql": 1.0,
+      "by_skill": {
+        "aggregate": 0.75,
+        "date": 0.9,
+        "filter_count": 1.0,
+        "filter_list": 1.0,
+        "group_by": 1.0,
+        "having": 0.8,
+        "join": 1.0,
+        "multi_join": 1.0,
+        "ratio": 1.0,
+        "subquery": 1.0,
+        "top_k": 1.0
+      }
+    },
+    "latency_s": {
+      "p50": 0.899,
+      "p95": 1.342,
+      "n": 30
+    },
+    "usd_per_1k_queries": 0.056
+  },
+  "qwen3-1.7b-base": {
+    "backend": "hf:Qwen/Qwen3-1.7B",
+    "adapter": "",
+    "test_seen": {
+      "n": 39,
+      "accuracy": 0.5128,
+      "valid_sql": 0.9487,
+      "by_skill": {
+        "aggregate": 0.5,
+        "date": 0.5,
+        "filter_count": 1.0,
+        "filter_list": 0.6,
+        "having": 0.0,
+        "join": 0.75,
+        "multi_join": 0.167,
+        "ratio": 0.0,
+        "top_k": 1.0
+      }
+    },
+    "test_heldout": {
+      "n": 24,
+      "accuracy": 0.2917,
+      "valid_sql": 0.8333,
+      "by_skill": {
+        "heldout": 0.292
+      }
+    },
+    "test_handwritten": {
+      "n": 59,
+      "accuracy": 0.4746,
+      "valid_sql": 0.8644,
+      "by_skill": {
+        "aggregate": 0.5,
+        "date": 0.3,
+        "filter_count": 1.0,
+        "filter_list": 0.75,
+        "group_by": 0.5,
+        "having": 0.4,
+        "join": 0.667,
+        "multi_join": 0.0,
+        "ratio": 0.25,
+        "subquery": 0.333,
+        "top_k": 1.0
+      }
+    },
+    "latency_s": {
+      "p50": 2.014,
+      "p95": 12.017,
+      "n": 30
+    },
+    "usd_per_1k_queries": 0.0
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "template": 386,
+  "paraphrase": 749,
+  "teacher": 974,
+  "total": 2109,
+  "teacher_usage": {
+    "calls": 1986,
+    "cached_tokens": 524288,
+    "uncached_tokens": 392302,
+    "output_tokens": 292216,
+    "usd": 0.2357
+  }
+}

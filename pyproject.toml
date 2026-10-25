@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sql-distill"
+version = "0.1.0"
+description = "Replace an API LLM with a 1.7B local text-to-SQL model: execution-verified data, SFT, then GRPO with an execution reward."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { text = "MIT" }
+authors = [{ name = "Bhavya Shah" }]
+keywords = ["text-to-sql", "distillation", "grpo", "reinforcement-learning", "small-language-models"]
+classifiers = [
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+  "pydantic>=2.7",
+  "httpx>=0.27",
+  "typer>=0.12",
+]
+
+[project.optional-dependencies]
+train = [
+  "torch>=2.14",
+  "transformers>=5.20",
+  "trl>=1.16",
+  "peft>=0.21",
+  "datasets>=5.1",
+  "accelerate>=1.15",
+]
+
+[project.scripts]
+sql-distill = "sql_distill.cli:app"
+
+[dependency-groups]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu130" }
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sql_distill"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+# SCHEMA_PROMPT is model input: its lines are part of every prompt and stay byte-identical.
+"src/sql_distill/db.py" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["models: requires model weights, a GPU or an API key"]
