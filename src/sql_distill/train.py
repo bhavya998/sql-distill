@@ -36,7 +36,7 @@ def sft(rows: list[dict], model_id: str, out_dir: Path, epochs: float = 3.0, lr:
     config = SFTConfig(
         output_dir=str(out_dir), num_train_epochs=epochs, learning_rate=lr,
         per_device_train_batch_size=batch, gradient_accumulation_steps=accum,
-        lr_scheduler_type="cosine", warmup_ratio=0.05, logging_steps=10, save_strategy="no",
+        lr_scheduler_type="cosine", warmup_steps=0.05, logging_steps=10, save_strategy="no",
         bf16=True, gradient_checkpointing=True, max_length=1280, seed=seed,
         completion_only_loss=True, report_to="none",
     )

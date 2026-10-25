@@ -9,3 +9,4 @@ data/*.db
 outputs/
 wandb/
 runs/
+*.log

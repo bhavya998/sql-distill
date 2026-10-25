@@ -19,7 +19,17 @@
 Execution accuracy: a prediction counts when it returns the gold rows. One RTX 3070 Ti laptop
 GPU (8 GB). Latency is single-query, batch size 1.
 
+> **Status:** baselines measured; the SFT and GRPO rows are added as each training run
+> finishes. Nothing in this table is estimated.
+
 <!-- RESULTS:START -->
+
+| Model | Seen templates | Held-out templates | Hand-written | p50 latency | $ / 1k queries |
+|---|---:|---:|---:|---:|---:|
+| Qwen3-1.7B, no training | 51.3% | 29.2% | 47.5% | 2.01 s | local |
+| Qwen3.5-4B Q4_K_M (llama.cpp), no training | 89.7% | 87.5% | 71.2% | 2.10 s | local |
+| DeepSeek V4.1 Flash (teacher, API) | 100.0% | 91.7% | 94.9% | 0.90 s | $0.056 |
+
 <!-- RESULTS:END -->
 
 ## The question
